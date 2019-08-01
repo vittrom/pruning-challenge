@@ -73,7 +73,7 @@ def unit_pruning(weights, k):
         w = copy.deepcopy(weights)
         l2_norm = np.linalg.norm(w, axis=0)
         threshold = np.percentile(l2_norm, k)
-        w[:,l2_norm <= threshold] = 0
+        w[:,l2_norm < threshold] = 0
         return w
 
 def preprocess_data(data):
